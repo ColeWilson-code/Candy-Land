@@ -6,6 +6,7 @@
 */
 
 #include "CandyLand.h"
+#include "CandyType.h"
 
 #ifndef CANDYJARS_H
 #define CANDYJARS_H
@@ -14,13 +15,13 @@ class CandyJars
 {
 private:
     CandyType ** candyPtr; 
-    string generalType;  //generalFlavor example: "Sour" "Chocolate"
+    string type;  //generalFlavor example: "Sour" "Chocolate"
 public:
     //getters 
-    string getGeneralType(){return generalType;}
+    string getType(){return type;}
     
     //setters
-    void setGeneralTpye(string kind);
+    void setType(string kind);
 };
 
 

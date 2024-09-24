@@ -14,17 +14,27 @@
 class CandyType
 {
     private:
-    string generalFlavor, generalName, generalColor;
+    string flavor, name, color;
 
     public:
     // getters
-    string getGeneralFlavor(){return generalFlavor;}
-    string getGeneralName(){return generalName;}
-    string getGeneralColor(){return generalColor;}
+    string getFlavor(){return flavor;}
+    string getName(){return name;}
+    string getColor(){return color;}
 
     //setters
-    void generalFlavor();
-    void generalName();
-    void generalColor();
+    void setFlavor(string);
+    void setName(string);
+    void setColor(string);
+
+    //constructor
+    CandyType(string flavor, string name, string color){
+        flavor = flavor;
+        name = name; 
+        color = color; 
+    }
 };
+
+CandyType addCandy(string, string, string);
+
 #endif

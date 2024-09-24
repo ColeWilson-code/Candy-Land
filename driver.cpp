@@ -5,19 +5,32 @@
     Purpose:  Add, cateorize, and display different types of candy
 */
 
-#include "CandyLand.h"
+#include "CandyShop.h"
+#include "CandyJars.h"
+#include "CandyType.h"
 
 
 int main () 
 {
     int menuChoice = 0;
-    string jarName, ;
+    string jarType;
+
+    /*
+    // create pointer to a vector storing shop pointers
+    vector<CandyShop*> *ptrToShopPtrs;
+    // create vector of pointers
+    vector<CandyShop*> vecOfShopPtrs;
+    //assign adress of vector to the pointer
+    ptrToShopPtrs = &vecOfShopPtrs;
+    */
+
+    CandyShop shop; 
     
-    cout << "Welcome to Candy Land!"
+    cout << "\n\nWelcome to Candy Land!";
     do{
         cout << "What Would you like to do?\n";
         cout << "1.Add new Jar\n2.Choose Jar\n3.Edit Current Jars\n4.Exit Store\n";
-        printJar();
+        printJar(shop.getVec());
         cout << "Please enter your choice: ";
         cin >> menuChoice;
 
@@ -25,35 +38,34 @@ int main ()
         {
             cout << "Please enter a valid choice: ";
             cin >> menuChoice;
-
         }
 
         switch(menuChoice) // switch to go through the menu
         {
-            //add new jar
+            //adding new jar
             case 1:
             cout << "What is the name of the jar you would like to add: ";
             cin.ignore();
-            getline(cin, jarName);
-            addJar(jarName);
+            getline(cin, jarType);
+            shop.addJar(shop.getVec(), jarType);
             break;
 
             //choose jar
             case 2: 
             cout << "What jar would you like to choose?"; 
-            printJar();
+            printJar(shop.getVec());
             cin.ignore();
-            getline(cin, jarName);
-                      
+            getline(cin, jarType);
+            
             
             break;
             
             //edit current jars
             case 3:
             cout << "Which jar would you like to edit?";
-            printJar();
+            printJar(shop.getVec());
             cin.ignore();
-            getline(cin, jarName);
+            getline(cin, jarType);
             
             break;
             
