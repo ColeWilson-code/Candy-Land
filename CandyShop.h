@@ -5,6 +5,7 @@
     Purpose:  contains a pointer to an array of pointers of Jars
 */
 #include "CandyLand.h"
+#include "CandyJars.h"
 
 
 #ifndef CANDY_SHOP_H
@@ -14,11 +15,25 @@
 class CandyShop
 {
     private:
-        CandyJars ** candyJarsPtr;
-        string name;
-    public: 
+        
+        // create vector of pointers
+        vector<CandyJars*> vecOfJarPtrs;
 
+        string name;
+        int numJars; 
+    public: 
+        void setName(string newName){name = newName;}
+        void setNumJars(int initNum){numJars = initNum;}
+        CandyJars* addJar(vector<CandyJars*> vec, string type); 
+        
+        string getName(){return name;}
+        int getNumJars(){return numJars;}
+
+        vector<CandyJars*>& getVec(){return vecOfJarPtrs;}
 };
+
+void printJar(vector<CandyJars*> vec);
 
 
 #endif
+

@@ -5,21 +5,18 @@
     Purpose:  Add, cateorize, and display different types of candy
 */
 
+#ifndef CANDY_LAND_H
+#define CANDY_LAND_H
+
 //so we do not have to type it so much
 #include <iostream>
+#include <vector>
 using namespace std;
-
-//include the class header files
-#include "CandyJars.h"
-#include "CandyType.h"
-#include "CandyShop.h"
 
 //function prototypes so we can call them as needed
 //these are general so change as needed
 void printCandy();
-void printJar();
-string addCandy(string);
-string addJar();
 void deleteCandy(string);
 void deleteJar(string);
 
+#endif
