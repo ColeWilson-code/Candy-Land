@@ -7,5 +7,11 @@
 
 #include "CandyJars.h"
 
-
+void printCandy(int index, vector<CandyJars*> vec)
+{
+	for (int i = 0; i < vec.size(); i++)
+	{
+		cout << vec[index].getCandy(i).getName();
+	}
+}
 

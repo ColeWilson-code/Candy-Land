@@ -14,30 +14,41 @@ int main ()
 {
     int menuChoice = 0;
     string jarType;
-
-    /*
-    // create pointer to a vector storing shop pointers
-    vector<CandyShop*> *ptrToShopPtrs;
-    // create vector of pointers
-    vector<CandyShop*> vecOfShopPtrs;
-    //assign adress of vector to the pointer
-    ptrToShopPtrs = &vecOfShopPtrs;
-    */
+    int jarNum; 
+    CandyJars* currJar;
 
     CandyShop shop; 
     
-    cout << "\n\nWelcome to Candy Land!";
+    cout << "\n\nWelcome to Candy Land! \n\n";
     do{
-        cout << "What Would you like to do?\n";
-        cout << "1.Add new Jar\n2.Choose Jar\n3.Edit Current Jars\n4.Exit Store\n";
-        printJar(shop.getVec());
+        
+        if(shop.getVec().empty()){
+            cout << "There are currently no jars in the store. \n\n";
+        }else{
+            cout << "Here is a list of all jars in the store: \n"; 
+            shop.printJar(shop.getVec());
+        }
+
+        cout << "What Would you like to do?\n\n";
+        cout << "1.Add new Jar\n2.Choose Jar\n3.Edit Current Jars\n4.Exit Store\n\n";
         cout << "Please enter your choice: ";
         cin >> menuChoice;
 
-        while(menuChoice < 4 || menuChoice > 1) // validate user input
+        //(!(cin >> menuChoice))
+        
+
+        while((menuChoice < 1 || menuChoice > 4) || (!(cin >> menuChoice))) // validate user input
         {
-            cout << "Please enter a valid choice: ";
+            //clear error flag 
+            cin.clear(); 
+            //ignore rest of current input
+            cin.ignore(); 
+
+            //have user input another input 
+            cout << "\n\nPlease enter a valid choice: ";
             cin >> menuChoice;
+            cin.ignore(); 
+            
         }
 
         switch(menuChoice) // switch to go through the menu
@@ -48,14 +59,23 @@ int main ()
             cin.ignore();
             getline(cin, jarType);
             shop.addJar(shop.getVec(), jarType);
+
+            //when hit max amount of jars
+            //if(ARRAY_SIZE)
+                //cout << "\n\nSorry! You have reached max inventory! Please remove a jar, or edit current ones.\n\n"; 
+
             break;
 
             //choose jar
             case 2: 
             cout << "What jar would you like to choose?"; 
-            printJar(shop.getVec());
+            shop.printJar(shop.getVec());
             cin.ignore();
-            getline(cin, jarType);
+            cin >> jarNum;
+            currJar = shop.getVec()[jarNum - 1];
+            *currJar.printCandy(jarNum - 1, shop.getVec());
+            
+            //shop.chooseJar(shop.getVec(), jarNum - 1);
             
             
             break;
@@ -63,12 +83,11 @@ int main ()
             //edit current jars
             case 3:
             cout << "Which jar would you like to edit?";
-            printJar(shop.getVec());
+            shop.printJar(shop.getVec());
             cin.ignore();
             getline(cin, jarType);
             
             break;
-            
         }
 
         //exit store for 4
