@@ -21,7 +21,7 @@ public:
     string getType(){return type;}
     
     //setters
-    void setType(string kind);
+    void setType(string kind){type = kind;}
 };
 
 

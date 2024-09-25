@@ -15,26 +15,24 @@ int main ()
     int menuChoice = 0;
     string jarType;
 
-    /*
-    // create pointer to a vector storing shop pointers
-    vector<CandyShop*> *ptrToShopPtrs;
-    // create vector of pointers
-    vector<CandyShop*> vecOfShopPtrs;
-    //assign adress of vector to the pointer
-    ptrToShopPtrs = &vecOfShopPtrs;
-    */
-
     CandyShop shop; 
     
-    cout << "\n\nWelcome to Candy Land!";
+    cout << "\n\nWelcome to Candy Land! \n\n";
     do{
-        cout << "What Would you like to do?\n";
-        cout << "1.Add new Jar\n2.Choose Jar\n3.Edit Current Jars\n4.Exit Store\n";
-        printJar(shop.getVec());
+        
+        if(shop.getVec().empty()){
+            cout << "There are currently no jars in the store. \n\n";
+        }else{
+            cout << "Here is a list of all jars in the store: \n"; 
+            shop.printJar(shop.getVec());
+        }
+
+        cout << "What Would you like to do?\n\n";
+        cout << "1.Add new Jar\n2.Choose Jar\n3.Edit Current Jars\n4.Exit Store\n\n";
         cout << "Please enter your choice: ";
         cin >> menuChoice;
 
-        while(menuChoice < 4 || menuChoice > 1) // validate user input
+        while(menuChoice < 1 || menuChoice > 4) // validate user input
         {
             cout << "Please enter a valid choice: ";
             cin >> menuChoice;
@@ -53,7 +51,7 @@ int main ()
             //choose jar
             case 2: 
             cout << "What jar would you like to choose?"; 
-            printJar(shop.getVec());
+            shop.printJar(shop.getVec());
             cin.ignore();
             getline(cin, jarType);
             
@@ -63,7 +61,7 @@ int main ()
             //edit current jars
             case 3:
             cout << "Which jar would you like to edit?";
-            printJar(shop.getVec());
+            shop.printJar(shop.getVec());
             cin.ignore();
             getline(cin, jarType);
             

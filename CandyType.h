@@ -23,15 +23,15 @@ class CandyType
     string getColor(){return color;}
 
     //setters
-    void setFlavor(string);
-    void setName(string);
-    void setColor(string);
+    void setFlavor(string f){flavor = f;}
+    void setName(string n){name = n;}
+    void setColor(string c){color = c;}
 
     //constructor
     CandyType(string flavor, string name, string color){
-        flavor = flavor;
-        name = name; 
-        color = color; 
+        this->flavor = flavor;
+        this->name = name; 
+        this->color = color; 
     }
 };
 
