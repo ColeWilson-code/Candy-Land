@@ -9,11 +9,11 @@
 
 /*
 	Function: addCandy 
-	Purpose: creates a constructor 
+	Purpose: creates an object of candy 
 */
-CandyType addCandy(string flavor, string color, string name)
+CandyType addCandy(string flavor, string color, string name, int numAdded)
 {
-	CandyType candy(flavor, name, color); 
+	CandyType candy(flavor, name, color, numAdded); 
 	return candy;
 }
 

@@ -15,23 +15,27 @@ class CandyType
 {
     private:
     string flavor, name, color;
+    int numOfCandy;
 
     public:
     // getters
     string getFlavor(){return flavor;}
     string getName(){return name;}
     string getColor(){return color;}
+    int getNumOfCandy(){return numOfCandy;}
 
     //setters
     void setFlavor(string f){flavor = f;}
     void setName(string n){name = n;}
     void setColor(string c){color = c;}
+    void setNumOfCandy(int num){numOfCandy = num;}
 
     //constructor
-    CandyType(string flavor, string name, string color){
+    CandyType(string flavor, string name, string color, int numOfCandy){
         this->flavor = flavor;
         this->name = name; 
         this->color = color; 
+        this->numOfCandy = numOfCandy;
     }
 };
 

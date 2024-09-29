@@ -20,10 +20,15 @@ public:
     //getters 
     string getType(){return type;}
     CandyType getCandy(int i){return candies[i];}
+    vector<CandyType> getCandyVec(){return candies;}
     
     //setters
     void setType(string kind){type = kind;}
-    void printCandy(CandyType candy);
+
+    //other functions
+    void printCandy();
+    void addCandy();
+    void removeCandy();
 };
 
 
