@@ -14,14 +14,21 @@
 class CandyJars
 {
 private:
-    CandyType ** candyPtr; 
+    vector<CandyType> candies; 
     string type;  //generalFlavor example: "Sour" "Chocolate"
 public:
     //getters 
     string getType(){return type;}
+    CandyType getCandy(int i){return candies[i];}
+    vector<CandyType> getCandyVec(){return candies;}
     
     //setters
     void setType(string kind){type = kind;}
+
+    //other functions
+    void printCandy();
+    void addCandy();
+    void removeCandy();
 };
 
 

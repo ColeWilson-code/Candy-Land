@@ -13,10 +13,6 @@
 #include <vector>
 using namespace std;
 
-//function prototypes so we can call them as needed
-//these are general so change as needed
-void printCandy();
-void deleteCandy(string);
-void deleteJar(string);
+
 
 #endif

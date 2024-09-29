@@ -22,19 +22,22 @@ class CandyShop
         string name;
         int numJars; 
     public: 
+        //setters
         void setName(string newName){name = newName;}
         void setNumJars(int initNum){numJars = initNum;}
-        CandyJars* addJar(vector<CandyJars*> &vec, string type); 
-        
+     
+        //getters
         string getName(){return name;}
         int getNumJars(){return numJars;}
 
-        void printJar(vector<CandyJars*> vec);
-
+        //other functioins
+        void printJars();
+        void addJar(string type);
         vector<CandyJars*>& getVec(){return vecOfJarPtrs;}
+        void chooseJar();
+        void printCandyLand();
 };
 
 
 
 #endif
-
