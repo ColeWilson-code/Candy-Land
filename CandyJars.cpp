@@ -57,7 +57,9 @@ void CandyJars::removeCandy(){
         cout << "\nThere are currently no candies in this jar.\n\n";
     }else{
 		cout << "Choose the candy you want to remove: ";
+
 		cin >> index;
+		index--;
 		cin.ignore();
 
 		candies.erase(candies.begin() + index);
