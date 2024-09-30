@@ -13,15 +13,14 @@
 int main () 
 {
     int menuChoice = 0;
-    string jarType;
 
-    CandyShop shop; 
+    //50 is max jars in shop
+    CandyShop shop(50); 
     
     shop.printCandyLand();
     do{
         shop.printJars();
         
-
         cout << "Choose a number to navigate menu.\n\n";
         cout << "1.Add new Jar\n2.Choose Jar to add or remove candy\n3.Remove Jar\n4.Exit Store\n\n";
         cout << "Please enter your choice: ";
@@ -47,10 +46,8 @@ int main ()
         {
             //adding new jar
             case 1:
-                cout << "\nEnter the name of the jar you would like to add: ";
-                cin.ignore();
-                getline(cin, jarType);
-                shop.addJar(jarType); 
+                
+                shop.addJar(); 
                 break;
 
             //choose jar
@@ -59,13 +56,10 @@ int main ()
                 shop.chooseJar(); 
                 break;
             
-            //edit current jars
+            //remove jars
             case 3:
-                cout << "Which jar would you like to edit?";
                 shop.printJars();
-                cin.ignore();
-                getline(cin, jarType);
-            
+                shop.removeJar();
                 break;
         }
 

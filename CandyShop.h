@@ -15,13 +15,20 @@
 class CandyShop
 {
     private:
-        
-        // create vector of pointers
-        vector<CandyJars*> vecOfJarPtrs;
+        //pointer to an array of pointers
+        CandyJars** jarsPtr;
 
         string name;
-        int numJars; 
+        int numJars;
+        int maxJars; 
     public: 
+        //constructor 
+        CandyShop(int max){
+            numJars = 0; 
+            maxJars = max;
+            jarsPtr = new CandyJars*[maxJars];
+        } 
+        
         //setters
         void setName(string newName){name = newName;}
         void setNumJars(int initNum){numJars = initNum;}
@@ -29,13 +36,15 @@ class CandyShop
         //getters
         string getName(){return name;}
         int getNumJars(){return numJars;}
+        CandyJars** getJarsPtr(){return jarsPtr;}
 
         //other functioins
         void printJars();
-        void addJar(string type);
-        vector<CandyJars*>& getVec(){return vecOfJarPtrs;}
+        void addJar();
         void chooseJar();
         void printCandyLand();
+        
+        void removeJar();
 };
 
 
