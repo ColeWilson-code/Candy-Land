@@ -1,7 +1,7 @@
 /*
 	Title:  Driver.cpp
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  9/10/2024                
+	Date:  10/02/2024                
     Purpose:  Add, cateorize, and display different types of candy
 */
 
@@ -20,7 +20,7 @@ int main ()
     shop.printCandyLand();
     do{
         shop.printJars();
-        
+        //print out the menu choices
         cout << "Choose a number to navigate menu.\n\n";
         cout << "1.Add new Jar\n2.Choose Jar to add or remove candy\n3.Remove Jar\n4.Exit Store\n\n";
         cout << "Please enter your choice: ";
@@ -28,15 +28,13 @@ int main ()
 
         //(!(cin >> menuChoice))
         
+        
+        
 
-        while(menuChoice < 1 || menuChoice > 4) // validate user input
+        while(menuChoice < 1 || menuChoice > 4) // validate user input 
+                                                                //need the cin.fail otherwise the terminal gets mad
         {
-            //clear error flag 
-            cin.clear(); 
-            //ignore rest of current input
-            cin.ignore(); 
-
-            //have user input another input 
+             //have user input another input 
             cout << "\n\nPlease enter a valid choice: ";
             cin >> menuChoice;
             cin.ignore(); 
@@ -50,7 +48,7 @@ int main ()
                 shop.addJar(); 
                 break;
 
-            //choose jar
+            //choose a to edit jar
             case 2: 
                 shop.printJars();
                 shop.chooseJar(); 
@@ -66,5 +64,15 @@ int main ()
         //exit store for 4
     }while(menuChoice != 4);
     
+    
     return 0;
 }
+
+/*
+while(!(cin >> maxStudents)){
+            cout << "Error: you have entered something other than a number." << endl << endl;
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "How many students do you want this program to manage? ";
+        }
+*/

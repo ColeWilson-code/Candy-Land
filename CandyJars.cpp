@@ -1,7 +1,7 @@
 /*
 	Title:  CandyJars.cpp
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  9/10/2024                
+	Date:  10/02/2024                
     Purpose:  
 */
 
@@ -40,6 +40,13 @@ void CandyJars::addCandy(){
     getline(cin, candyColor);
     cout << "Enter the candy quantity: ";
     cin >> numCandy;
+	while (cin.fail())
+	{
+		cout << "Please enter a valid number\n";
+		cout << "Enter the candy quantity: ";
+    	cin >> numCandy;
+	}
+	
     cin.ignore();
 
 	//candy constructor
@@ -54,7 +61,8 @@ void CandyJars::removeCandy(){
 	int index;
 
 	if(candies.empty()){
-        cout << "\nThere are currently no candies in this jar.\n\n";
+        cout << "\nThere is no candy to remove.\n\n";
+		cout << "-------------------------------------------------------------\n";
     }else{
 		cout << "Choose the candy you want to remove: ";
 
@@ -67,4 +75,3 @@ void CandyJars::removeCandy(){
 		cout << "The candy at position " << index << " has been successfully removed.\n\n";
 	}
 }
-

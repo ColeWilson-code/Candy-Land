@@ -1,7 +1,7 @@
 /*
 	Title:  CandyShop.cpp
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  9/10/2024                
+	Date:  10/02/2024                
     Purpose:  
 */
 
@@ -15,7 +15,7 @@ void CandyShop::addJar(){
         string jarType;
         
         cout << "\nEnter the name of the jar you would like to add: ";
-        cin.ignore();
+        cin.ignore();   //do not remove
         getline(cin, jarType);
         CandyJars* jar = new CandyJars;
         jar->setType(jarType);
@@ -49,11 +49,13 @@ void CandyShop::chooseJar(){
         cout << "Enter the number of the jar you would like to choose: "; 
         cin >> jarNum;
         cin.ignore();
+
         //verify number entered
         while (jarNum < 1 || jarNum > numJars) {
             cout << "Invalid jar number. Please choose a valid jar: ";
             cin >> jarNum;
         }
+
         CandyJars* currJar = jarsPtr[numJars - 1];
         cout << "You have picked " << currJar->getType() << ".\n";
         currJar->printCandy();
@@ -62,7 +64,17 @@ void CandyShop::chooseJar(){
         int addOrRemInput;
         cin >> addOrRemInput;
         cin.ignore();
-            
+
+        //verify user input
+        while(addOrRemInput < 1 || addOrRemInput > 2)
+        {
+            cout << "Please Enter 1 or 2\n"; 
+            cout << "Press 1 to add candy and 2 to remove candy: "; 
+            int addOrRemInput;
+            cin >> addOrRemInput;
+            cin.ignore();
+        }
+
         if(addOrRemInput == 1){
             currJar->addCandy();
             currJar->printCandy();
@@ -94,6 +106,8 @@ void CandyShop::removeJar(){
         for(int i = removeIndex; i < numJars - 1; i++){
             jarsPtr[i] = jarsPtr[i+1];
         }
+        //delete jarsPtr[numJars - 1];
+        numJars--;
     }
 }
 

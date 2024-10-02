@@ -1,7 +1,7 @@
 /*
 	Title:  CandyLand.h
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  9/10/2024                
+	Date:  10/02/2024                
     Purpose:  Add, cateorize, and display different types of candy
 */
 

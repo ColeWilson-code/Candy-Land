@@ -1,7 +1,7 @@
 /*
 	Title:  CandyJars.h
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  9/10/2024                
+	Date:  10/02/2024                
     Purpose:  contains a pointer to an array of pointers of CandyType
 */
 
