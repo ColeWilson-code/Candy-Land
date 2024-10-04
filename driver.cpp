@@ -9,7 +9,6 @@
 #include "CandyJars.h"
 #include "CandyType.h"
 
-
 int main () 
 {
     int menuChoice = 0;
@@ -24,24 +23,20 @@ int main ()
         cout << "Choose a number to navigate menu.\n\n";
         cout << "1.Add new Jar\n2.Choose Jar to add or remove candy\n3.Remove Jar\n4.Exit Store\n\n";
         cout << "Please enter your choice: ";
-        cin >> menuChoice;
-
-        //(!(cin >> menuChoice))
         
-        while(menuChoice < 1 || menuChoice > 4) // validate user input 
-                                                                //need the cin.fail otherwise the terminal gets mad
-        {
-             //have user input another input 
-            cout << "\n\nPlease enter a valid choice: ";
-            cin >> menuChoice;
-            cin.ignore(); 
+        //input validation
+        while(!(cin >> menuChoice) || (menuChoice < 1 || menuChoice > 4)){
+            //have user input another input 
+            cout << "\nPlease enter a valid choice: ";
+            cin.clear();
+            cin.ignore(100, '\n'); //CSC 1300 code I found
         }
 
         switch(menuChoice) // switch to go through the menu
         {
             //adding new jar
             case 1:
-                
+            
                 shop.addJar(); 
                 break;
 
@@ -57,11 +52,12 @@ int main ()
                 shop.removeJar();
                 break;
         }
-        //deallocate memory
-        shop.freeMemory();
 
         //exit store for 4
     }while(menuChoice != 4);
     
+    //deallocate memory
+    shop.freeMemory();
+
     return 0;
 }

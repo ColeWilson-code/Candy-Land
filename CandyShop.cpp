@@ -45,16 +45,16 @@ void CandyShop::chooseJar(){
    if(numJars == 0){
         cout << "\nThere is no jar to choose. \n\n";
    }else{
+        
         int jarNum;
-        cout << "Enter the number of the jar you would like to choose: "; 
-        cin >> jarNum;
-        cin.ignore();
 
-        //verify number entered
-        while (jarNum < 1 || jarNum > numJars) {
-            cout << "Invalid jar number. Please choose a valid jar: ";
-            cin >> jarNum;
-        }
+        cout << "Enter the number of the jar you would like to choose: ";
+        while(!(cin >> jarNum) || jarNum < 1 || jarNum > numJars){
+            //have user input another input 
+            cout << "\nPlease enter the jar number you want within the list: ";
+            cin.clear();
+            cin.ignore(100, '\n'); //CSC 1300 code I found
+        } 
 
         CandyJars* currJar = jarsPtr[numJars - 1];
         cout << "You have picked " << currJar->getType() << ".\n";
@@ -62,18 +62,14 @@ void CandyShop::chooseJar(){
 
         cout << "Press 1 to add candy and 2 to remove candy: "; 
         int addOrRemInput;
-        cin >> addOrRemInput;
-        cin.ignore();
 
-        //verify user input
-        while(addOrRemInput < 1 || addOrRemInput > 2)
-        {
-            cout << "Please Enter 1 or 2\n"; 
-            cout << "Press 1 to add candy and 2 to remove candy: "; 
-            int addOrRemInput;
-            cin >> addOrRemInput;
-            cin.ignore();
-        }
+        while(!(cin >> addOrRemInput) || addOrRemInput < 1 || addOrRemInput > 2){
+            //have user input another input 
+            cout << "\nPlease enter 1 or 2: ";
+            cin.clear();
+            cin.ignore(100, '\n'); //CSC 1300 code I found
+        } 
+        cin.ignore(100, '\n');
 
         if(addOrRemInput == 1){
             currJar->addCandy();
@@ -89,17 +85,18 @@ void CandyShop::chooseJar(){
 void CandyShop::removeJar(){
     if(numJars == 0){
         cout << "\nThere is no jar to remove. \n\n";
+        cout << "-------------------------------------------------------------\n";
     }else{
         
         int jarNum;
         cout << "Enter the number of the jar you would like to remove: "; 
-        cin >> jarNum;
-        cin.ignore();
-        //verify number entered
-        while (jarNum < 1 || jarNum > numJars) {
-            cout << "Invalid jar number. Please choose a jar in the list: ";
-            cin >> jarNum;
-        }
+
+        while(!(cin >> jarNum) || jarNum < 1 || jarNum > numJars){
+            //have user input another input 
+            cout << "\nPlease enter the jar number you want: ";
+            cin.clear();
+            cin.ignore(100, '\n'); //CSC 1300 code I found
+        } 
 
         int removeIndex = jarNum - 1;
         delete jarsPtr[removeIndex];

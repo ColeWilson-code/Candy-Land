@@ -66,7 +66,13 @@ void CandyJars::removeCandy(){
     }else{
 		cout << "Choose the candy you want to remove: ";
 
-		cin >> index;
+		while(!(cin >> index) || index < 1 || index > candies.size()){
+            //have user input another input 
+            cout << "\nPlease enter the jar number you want: ";
+            cin.clear();
+            cin.ignore(100, '\n'); //CSC 1300 code I found
+        }
+
 		index--;
 		cin.ignore();
 
