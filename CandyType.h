@@ -16,6 +16,7 @@ class CandyType
     private:
     string flavor, name, color;
     int numOfCandy;
+    
 
     public:
     // getters
@@ -31,11 +32,12 @@ class CandyType
     void setNumOfCandy(int num){numOfCandy = num;}
 
     //constructor
-    CandyType(string flavor, string name, string color, int numOfCandy){
+    CandyType(string flavor, string name, string color, int numOfCandy) 
+    {
         this->flavor = flavor;
-        this->name = name; 
-        this->color = color; 
-        this->numOfCandy = numOfCandy;
+        this->name = name;
+        this->color = color;
+        this->numOfCandy = numOfCandy; 
     }
 };
 

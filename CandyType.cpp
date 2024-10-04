@@ -10,12 +10,11 @@
 /*
 	Function: addCandy 
 	Purpose: creates an object of candy 
-*/
+
 CandyType addCandy(string flavor, string color, string name, int numAdded)
 {
 	CandyType candy(flavor, name, color, numAdded); 
 	return candy;
 }
-
-
+*/
 

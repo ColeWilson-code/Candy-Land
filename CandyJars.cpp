@@ -39,15 +39,13 @@ void CandyJars::addCandy(){
     cout << "Enter the candy color: ";
     getline(cin, candyColor);
     cout << "Enter the candy quantity: ";
-    cin >> numCandy;
-	while (cin.fail())
-	{
-		cout << "Please enter a valid number\n";
-		cout << "Enter the candy quantity: ";
-    	cin >> numCandy;
-	}
-	
-    cin.ignore();
+
+	while(!(cin >> numCandy)){
+            //have user input another input 
+            cout << "\nPlease enter a number: ";
+            cin.clear();
+            cin.ignore(100, '\n'); //CSC 1300 code I found
+        }
 
 	//candy constructor
 	CandyType newCandy(candyFlavor,candyName,candyColor, numCandy);
