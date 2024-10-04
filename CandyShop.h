@@ -43,8 +43,8 @@ class CandyShop
         void addJar();
         void chooseJar();
         void printCandyLand();
-        
         void removeJar();
+        void freeMemory();
 };
 
 

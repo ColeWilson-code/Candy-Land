@@ -28,9 +28,6 @@ int main ()
 
         //(!(cin >> menuChoice))
         
-        
-        
-
         while(menuChoice < 1 || menuChoice > 4) // validate user input 
                                                                 //need the cin.fail otherwise the terminal gets mad
         {
@@ -60,19 +57,11 @@ int main ()
                 shop.removeJar();
                 break;
         }
+        //deallocate memory
+        shop.freeMemory();
 
         //exit store for 4
     }while(menuChoice != 4);
     
-    
     return 0;
 }
-
-/*
-while(!(cin >> maxStudents)){
-            cout << "Error: you have entered something other than a number." << endl << endl;
-            cin.clear();
-            cin.ignore(100, '\n');
-            cout << "How many students do you want this program to manage? ";
-        }
-*/

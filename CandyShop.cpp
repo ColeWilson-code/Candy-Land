@@ -111,6 +111,14 @@ void CandyShop::removeJar(){
     }
 }
 
+void CandyShop::freeMemory(){
+    for(int i = i; i < numJars; i++){
+        delete jarsPtr[i];
+    }
+    delete[] jarsPtr;
+}
+
+
 void CandyShop::printCandyLand(){
 
     cout <<"  ______     ___      .__   __.  _______   ____    ____     __          ___      .__   __.  _______ \n"; 
