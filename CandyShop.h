@@ -2,7 +2,8 @@
 	Title:  CandyShop.h
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
 	Date:  10/02/2024                
-    Purpose:  contains a pointer to an array of pointers of Jars
+    Purpose:  This is the header file for the candyShop which contains the jars class. 
+                The class contains a pointer to an array of pointers
 */
 #include "CandyLand.h"
 #include "CandyJars.h"
@@ -46,7 +47,5 @@ class CandyShop
         void removeJar();
         void freeMemory();
 };
-
-
 
 #endif

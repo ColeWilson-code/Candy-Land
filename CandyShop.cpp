@@ -1,13 +1,21 @@
 /*
 	Title:  CandyShop.cpp
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  10/02/2024                
-    Purpose:  
+	Date:  10/04/2024                
+    Purpose: This file handles the contents of the shop with functions to 
+				addJar, printJars, chooseJar, removeJar, free memory, and 
+                printCandyLand. 
 */
 
 #include "CandyShop.h"
 
-
+/*********************************************************************** 
+    Function Name: addJar
+    Fucntion Purpose: This function gets user input and creates a new 
+                        element in the jars array via allocated memory. 
+                        The function also increments the total number
+                        of jars in list.
+************************************************************************/
 void CandyShop::addJar(){ 
     if(numJars == maxJars){
         cout << "You have reached max inventory! Must remove a jar to add one.\n";
@@ -24,6 +32,11 @@ void CandyShop::addJar(){
     }
 }
 
+/*********************************************************************** 
+    Function Name: printJars
+    Fucntion Purpose: This function loops through the jars array and 
+                        and prints them in order. 
+************************************************************************/
 void CandyShop::printJars()
 {
    if(numJars == 0){
@@ -40,6 +53,12 @@ void CandyShop::printJars()
    }
 }
 
+/*********************************************************************** 
+    Function Name: chooseJar
+    Fucntion Purpose: This function recieves user input to pick a specified 
+                        jar and calls a function to add or remove candy for
+                        the jar chosen. 
+************************************************************************/
 void CandyShop::chooseJar(){
 
    if(numJars == 0){
@@ -56,32 +75,40 @@ void CandyShop::chooseJar(){
             cin.ignore(100, '\n'); //CSC 1300 code I found
         } 
 
-        CandyJars* currJar = jarsPtr[numJars - 1];
+        //assigns the specified jar user picks to currJar
+        CandyJars* currJar = jarsPtr[jarNum - 1];
         cout << "You have picked " << currJar->getType() << ".\n";
         currJar->printCandy();
 
         cout << "Press 1 to add candy and 2 to remove candy: "; 
         int addOrRemInput;
 
-        while(!(cin >> addOrRemInput) || addOrRemInput < 1 || addOrRemInput > 2){
-            //have user input another input 
+        //validate input to ensure a number is inputted and either 1 or 2
+        while(!(cin >> addOrRemInput) || addOrRemInput < 1 || addOrRemInput > 2){ 
             cout << "\nPlease enter 1 or 2: ";
             cin.clear();
             cin.ignore(100, '\n'); //CSC 1300 code I found
         } 
         cin.ignore(100, '\n');
 
-        if(addOrRemInput == 1){
+        if(addOrRemInput == 1){ //add candy and print candies
             currJar->addCandy();
             currJar->printCandy();
-        }else if(addOrRemInput == 2){
+        }else if(addOrRemInput == 2){ //add candy and print candies
             currJar->removeCandy();
             currJar->printCandy();  
         }
    }
-
 }
 
+/*********************************************************************** 
+    Function Name: removeJar
+    Fucntion Purpose: This function recieves user input and removes the 
+                        specified jar via the index chosen. The remove function 
+                        deallocates the element at the index and shifts all elements 
+                        higher to the left one. Also decrements number of 
+                        jars in shop.  
+************************************************************************/
 void CandyShop::removeJar(){
     if(numJars == 0){
         cout << "\nThere is no jar to remove. \n\n";
@@ -107,7 +134,12 @@ void CandyShop::removeJar(){
         numJars--;
     }
 }
-
+/*********************************************************************** 
+    Function Name: freeMemory
+    Fucntion Purpose: This function frees allocated memory from the pointer
+                        to an array of pointers. Called when the user exits
+                        the program. 
+************************************************************************/
 void CandyShop::freeMemory(){
     for(int i = i; i < numJars; i++){
         delete jarsPtr[i];
@@ -115,7 +147,11 @@ void CandyShop::freeMemory(){
     delete[] jarsPtr;
 }
 
-
+/*********************************************************************** 
+    Function Name: printCandyLand
+    Fucntion Purpose: This function prints large-lettered candyland to 
+                        the screen 
+************************************************************************/
 void CandyShop::printCandyLand(){
 
     cout <<"  ______     ___      .__   __.  _______   ____    ____     __          ___      .__   __.  _______ \n"; 

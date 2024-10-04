@@ -1,8 +1,9 @@
 /*
 	Title:  CandyType.h
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  10/02/2024                
-    Purpose:  
+	Date:  10/04/2024                
+    Purpose: This is the header file for CandyType and holds the class of 
+                candyType
 */
 
 #include "CandyLand.h"
@@ -17,7 +18,6 @@ class CandyType
     string flavor, name, color;
     int numOfCandy;
     
-
     public:
     // getters
     string getFlavor(){return flavor;}
@@ -40,7 +40,5 @@ class CandyType
         this->numOfCandy = numOfCandy; 
     }
 };
-
-CandyType addCandy(string, string, string);
 
 #endif

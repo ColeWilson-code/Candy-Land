@@ -1,8 +1,9 @@
 /*
 	Title:  CandyJars.h
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  10/02/2024                
-    Purpose:  contains a pointer to an array of pointers of CandyType
+	Date:  10/04/2024                
+    Purpose:  This is the header file for CandyJars. It contains several function declarations
+                and also contains a pointer.
 */
 
 #include "CandyLand.h"

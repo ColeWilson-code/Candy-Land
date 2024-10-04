@@ -1,8 +1,8 @@
 /*
 	Title:  CandyLand.h
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  10/02/2024                
-    Purpose:  Add, cateorize, and display different types of candy
+	Date:  10/04/2024                
+    Purpose:  This functions allows us to type namespace once as well as other libraries being used
 */
 
 #ifndef CANDY_LAND_H
@@ -12,7 +12,5 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
-
 
 #endif

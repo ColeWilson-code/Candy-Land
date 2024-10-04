@@ -1,12 +1,17 @@
 /*
 	Title:  CandyJars.cpp
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  10/02/2024                
-    Purpose:  
+	Date:  10/04/2024                
+    Purpose: This file handles the contents of the jars with functions to 
+				print, add, and remove candy. 
 */
 
 #include "CandyJars.h"
 
+/*********************************************************************** 
+    Function Name: printCandy
+    Fucntion Purpose: print a list of all candy in the candy vector 
+************************************************************************/
 void CandyJars::printCandy()
 {
 
@@ -25,6 +30,11 @@ void CandyJars::printCandy()
 	}
 }
 
+/*********************************************************************** 
+    Function Name: addCandy
+    Fucntion Purpose: This function gets user input, calls the candy constructor,
+						and pushes the candy into the candy vector
+************************************************************************/
 void CandyJars::addCandy(){
 
 	//vars used
@@ -40,13 +50,12 @@ void CandyJars::addCandy(){
     getline(cin, candyColor);
     cout << "Enter the candy quantity: ";
 
+	//verify user input to make sure it is a number
 	while(!(cin >> numCandy)){
-            //have user input another input 
             cout << "\nPlease enter a number: ";
             cin.clear();
             cin.ignore(100, '\n'); //CSC 1300 code I found
         }
-
 	//candy constructor
 	CandyType newCandy(candyFlavor,candyName,candyColor, numCandy);
 
@@ -55,6 +64,12 @@ void CandyJars::addCandy(){
 	cout << "Successfully added " << numCandy << " " << candyName << "\n\n";
 }
 
+/*********************************************************************** 
+    Function Name: removeCandy
+    Fucntion Purpose: This function gets user input for the specified
+						candy to be removed, then removes that candy from 
+						the candy vector using erase vector function.
+************************************************************************/
 void CandyJars::removeCandy(){
 	int index;
 
@@ -64,16 +79,18 @@ void CandyJars::removeCandy(){
     }else{
 		cout << "Choose the candy you want to remove: ";
 
+		//verify user input
 		while(!(cin >> index) || index < 1 || index > candies.size()){
             //have user input another input 
             cout << "\nPlease enter the jar number you want: ";
             cin.clear();
             cin.ignore(100, '\n'); //CSC 1300 code I found
         }
-
+		//decrement index to account for 0 indexing
 		index--;
 		cin.ignore();
 
+		//vector function 'erase' uses an iterator
 		candies.erase(candies.begin() + index);
 
 		cout << "The candy at position " << index + 1 << " has been successfully removed.\n\n";

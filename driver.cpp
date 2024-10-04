@@ -1,8 +1,10 @@
 /*
 	Title:  Driver.cpp
 	Author:  David Trigg Lampkins, Cole Wilson, Cameron Bailey, Jack Bender
-	Date:  10/02/2024                
-    Purpose:  Add, cateorize, and display different types of candy
+	Date:  10/04/2024                
+    Purpose:  This file provides the user with an interface to navigate the candy store.
+                The user will continually come back to the main menu which utilizes a 
+                switch statement and while loop
 */
 
 #include "CandyShop.h"
