@@ -78,6 +78,6 @@ void CandyJars::removeCandy(){
 
 		candies.erase(candies.begin() + index);
 
-		cout << "The candy at position " << index << " has been successfully removed.\n\n";
+		cout << "The candy at position " << index + 1 << " has been successfully removed.\n\n";
 	}
 }
